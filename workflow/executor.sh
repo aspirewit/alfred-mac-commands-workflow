@@ -10,4 +10,10 @@ case "$1" in
         echo "All opened apps are closed"
     ;;
 
+    # Eject all mounted volumes and disk
+    "eject-all")
+        osascript -e 'tell application "Finder" to eject (every disk)'
+        echo "All mounted volumes are ejected"
+    ;;
+
 esac
