@@ -1,5 +1,6 @@
 mac_commands=(
     apps:close-all
+    eject-all
 )
 
 cat<<EOB
@@ -7,7 +8,11 @@ cat<<EOB
 <items>
 EOB
 
-matched_commands=( $( for i in ${mac_commands[@]} ; do echo $i ; done | grep $1 ) )
+if [ -z $1 ]; then
+  mac_commands=$mac_commands
+else
+  matched_commands=( $( for command in ${mac_commands[@]} ; do echo $command ; done | grep $1 ) )
+fi
 
 for command in "${matched_commands[@]}"; do
 cat<<EOB
