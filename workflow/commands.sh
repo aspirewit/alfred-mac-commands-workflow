@@ -1,6 +1,7 @@
 mac_commands=(
     close-all
     eject-all
+    generate-password
 )
 
 if [ $1 ]; then
