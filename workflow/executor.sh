@@ -16,4 +16,9 @@ case "$1" in
         echo "All mounted volumes are ejected"
     ;;
 
+    "generate-password")
+        openssl rand -base64 32 | cut -c 1-16 | pbcopy
+        echo "The password has already been generated"
+    ;;
+
 esac
